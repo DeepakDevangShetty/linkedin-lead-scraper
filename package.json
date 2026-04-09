@@ -1,0 +1,21 @@
+{
+    "name": "linkedin-lead-scraper",
+    "version": "1.0.0",
+    "description": "Apify Actor: Scrape LinkedIn Software Engineer profiles with 20k+ followers",
+    "main": "src/main.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/main.js",
+        "dev": "APIFY_IS_AT_HOME=0 node src/main.js"
+    },
+    "dependencies": {
+        "apify": "^3.3.2",
+        "crawlee": "^3.9.2",
+        "puppeteer": "^22.6.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "author": "",
+    "license": "ISC"
+}

@@ -1,0 +1,50 @@
+{
+    "actorSpecification": 1,
+    "name": "linkedin-software-engineer-lead-scraper",
+    "title": "LinkedIn Software Engineer Lead Scraper",
+    "description": "Scrapes LinkedIn for Software Engineer profiles with 20,000+ followers. Filters by job title, location, and follower count. Exports structured lead data.",
+    "version": "1.0",
+    "meta": {
+        "templateId": "js-puppeteer-cheerio"
+    },
+    "input": "./INPUT_SCHEMA.json",
+    "dockerfile": "./Dockerfile",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "fields": {},
+            "views": {
+                "overview": {
+                    "title": "Leads Overview",
+                    "transformation": {
+                        "fields": [
+                            "name",
+                            "headline",
+                            "location",
+                            "followerCount",
+                            "currentTitle",
+                            "currentCompany",
+                            "profileUrl",
+                            "skills",
+                            "about",
+                            "scrapedAt"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "name": { "label": "Name", "format": "text" },
+                            "headline": { "label": "Headline", "format": "text" },
+                            "location": { "label": "Location", "format": "text" },
+                            "followerCount": { "label": "Followers", "format": "number" },
+                            "currentTitle": { "label": "Current Title", "format": "text" },
+                            "currentCompany": { "label": "Company", "format": "text" },
+                            "profileUrl": { "label": "Profile URL", "format": "link" },
+                            "scrapedAt": { "label": "Scraped At", "format": "datetime" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "title": "LinkedIn Lead Scraper Input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "minFollowers": {
+            "title": "Minimum Followers",
+            "type": "integer",
+            "description": "Only include profiles with at least this many followers. e.g. 20000 for 20K+",
+            "default": 20000,
+            "minimum": 0,
+            "editor": "number"
+        },
+        "industry": {
+            "title": "Industry",
+            "type": "string",
+            "description": "The industry to target. e.g. 'Software Engineering', 'Finance', 'Healthcare', 'Marketing'",
+            "default": "Software Engineering",
+            "editor": "textfield",
+            "example": "Software Engineering"
+        },
+        "maxProfiles": {
+            "title": "Max Profiles to Scrape",
+            "type": "integer",
+            "description": "Maximum number of qualifying leads to collect.",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000,
+            "editor": "number"
+        },
+        "location": {
+            "title": "Location Filter (optional)",
+            "type": "string",
+            "description": "LinkedIn geoUrn for location filtering (e.g. '103644278' for United States). Leave blank for worldwide.",
+            "default": "",
+            "editor": "textfield"
+        },
+        "linkedInCookies": {
+            "title": "LinkedIn Session Cookies",
+            "type": "array",
+            "description": "Your LinkedIn session cookies. At minimum provide 'li_at'. Get these from your browser DevTools → Application → Cookies → www.linkedin.com.",
+            "editor": "json",
+            "default": [
+                {
+                    "name": "li_at",
+                    "value": "YOUR_LI_AT_COOKIE_VALUE_HERE"
+                },
+                {
+                    "name": "JSESSIONID",
+                    "value": "YOUR_JSESSIONID_VALUE_HERE"
+                }
+            ]
+        }
+    },
+    "required": ["linkedInCookies", "minFollowers", "industry"]
+}
